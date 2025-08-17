@@ -24,8 +24,8 @@ app.post("/lyrics", async (req, res) => {
     });
 
     console.log("trackName:", trackName);
-console.log("artistName:", artistName);
-console.log("Genius API Token:", GENIUS_API_TOKEN ? "✓" : "✗（undefined）");
+    console.log("artistName:", artistName);
+    console.log("Genius API Token:", GENIUS_API_TOKEN ? "✓" : "✗（undefined）");
     console.log("Genius API response:", searchRes.data);
 
     const song = searchRes.data.response.hits.find(hit =>
