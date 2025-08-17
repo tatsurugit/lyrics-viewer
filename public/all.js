@@ -1,5 +1,5 @@
 const spotifyClientId = "e71647fa50744af7bc6e37893583fe58";
-const redirectUri = "http://localhost:5500";
+const redirectUri = "https://lyrics-viewer.onrender.com";
 const spotifyScopes = "user-read-currently-playing";
 
 const authUrl = `https://accounts.spotify.com/authorize?client_id=${spotifyClientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(spotifyScopes)}`;
@@ -60,7 +60,7 @@ fetch("https://api.spotify.com/v1/me/player/currently-playing", {
 			<h3 class="lyric_ja_ttl">和訳（DeepL）</h3>
 			<p class="lyric ja">${translation.translated}</p>
 			`;
-			
+
 			btn.style.display = "none"; // ボタンを非表示にする
 		};
 
