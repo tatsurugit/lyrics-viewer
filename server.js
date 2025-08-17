@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
-const PORT = 5500;
+const PORT = process.env.PORT || 5500;
 
 const GENIUS_API_TOKEN = process.env.GENIUS_API_TOKEN;
 const DEEPL_API_KEY = process.env.DEEPL_API_KEY;
@@ -98,5 +98,5 @@ app.post("/translate", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(`Server listening on port ${PORT}`);
 });
