@@ -3,7 +3,7 @@ const redirectUri = "https://lyrics-viewer.onrender.com";
 const spotifyScopes = "user-read-currently-playing";
 
 const authUrl = `https://accounts.spotify.com/authorize?client_id=${spotifyClientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(spotifyScopes)}`;
-
+console.log(authUrl)
 const hash = window.location.hash;
 
 if (hash) {
