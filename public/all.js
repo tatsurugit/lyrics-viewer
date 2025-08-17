@@ -5,7 +5,7 @@ const spotifyScopes = "user-read-currently-playing";
 const authUrl = `https://accounts.spotify.com/authorize?client_id=${spotifyClientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(spotifyScopes)}`;
 
 const hash = window.location.hash;
-console.log("Genius API response:", searchRes.data);
+
 if (hash) {
 const token = new URLSearchParams(hash.substring(1)).get("access_token");
 
