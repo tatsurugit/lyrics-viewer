@@ -23,6 +23,10 @@ app.post("/lyrics", async (req, res) => {
       headers: { Authorization: `Bearer ${GENIUS_API_TOKEN}` },
     });
 
+    console.log("trackName:", trackName);
+console.log("artistName:", artistName);
+console.log("Genius API Token:", GENIUS_API_TOKEN ? "✓" : "✗（undefined）");
+
     const song = searchRes.data.response.hits.find(hit =>
       hit.result.title.toLowerCase().includes(trackName.toLowerCase())
     );
