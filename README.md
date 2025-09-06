@@ -43,7 +43,7 @@ npm install
 
 .env ファイルをルートに作成し、以下の値を設定してください。
 ```
-SPOTIFY_CLIENT_ID=your_spotifyClientId
+SPOTIFY_CLIENT_ID=your_spotify_client_id
 GENIUS_API_TOKEN=your_genius_token
 DEEPL_API_KEY=your_deepl_key
 ```
