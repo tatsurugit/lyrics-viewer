@@ -8,6 +8,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
+app.get("/spotify-client-id", (req, res) => {
+  res.json({ clientId: process.env.SPOTIFY_CLIENT_ID });
+});
 const PORT = process.env.PORT || 5500;
 
 const GENIUS_API_TOKEN = process.env.GENIUS_API_TOKEN;
@@ -22,11 +25,6 @@ app.post("/lyrics", async (req, res) => {
       params: { q: `${trackName} ${artistName}` },
       headers: { Authorization: `Bearer ${GENIUS_API_TOKEN}` },
     });
-
-    console.log("trackName:", trackName);
-    console.log("artistName:", artistName);
-    console.log("Genius API Token:", GENIUS_API_TOKEN ? "✓" : "✗（undefined）");
-    console.log("Genius API response:", searchRes.data);
 
     const song = searchRes.data.response.hits.find(hit =>
       hit.result.title.toLowerCase().includes(trackName.toLowerCase())
