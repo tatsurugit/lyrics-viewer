@@ -1,13 +1,16 @@
-const spotifyClientId = "e71647fa50744af7bc6e37893583fe58";
-const redirectUri = "https://lyrics-viewer.onrender.com";
-const spotifyScopes = "user-read-currently-playing";
+fetch("/spotify-client-id")
+  .then((res) => res.json())
+  .then((data) => {
+	const spotifyClientId = data.clientId;
+	const redirectUri = "http://localhost:5500";
+	const spotifyScopes = "user-read-currently-playing";
 
-const authUrl = `https://accounts.spotify.com/authorize?client_id=${spotifyClientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(spotifyScopes)}`;
-
+	const authUrl = `https://accounts.spotify.com/authorize?client_id=${spotifyClientId}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(spotifyScopes)}`;
+});
 const hash = window.location.hash;
 
 if (hash) {
-const token = new URLSearchParams(hash.substring(1)).get("access_token");
+	const token = new URLSearchParams(hash.substring(1)).get("access_token");
 
 fetch("https://api.spotify.com/v1/me/player/currently-playing", {
 	headers: { Authorization: "Bearer " + token }
